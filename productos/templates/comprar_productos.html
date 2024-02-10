@@ -1,0 +1,60 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <div class="seccion__register-contenedor">
+        <div class="seccion__register">
+            <h2>Confirmación de tu compra</h2>
+        </div>
+        <div class="seccion__register-form">        
+            <form id="productos-form" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                    <h1 class="error">{{ error }}</h1>
+                {% endif %}
+
+                <div class="form-input">
+                    <label for="id_nombre_comprador">Nombre del comprador:</label><br>
+                    <input type="text" name="nombre_comprador" maxlength="100" class="form-control" placeholder="Nombre del comprador" required id="id_nombre_comprador">
+                </div>
+                <div class="form-input">
+                    <label for="id_correo">Correo electrónico:</label><br>
+                    <input type="email" name="correo" class="form-control" placeholder="Correo electrónico" required id="id_correo">
+                </div>
+                <div class="form-input">
+                    <label for="id_telefono">Número de teléfono:</label><br>
+                    <input type="text" name="telefono" maxlength="20" class="form-control" placeholder="Número de teléfono" required id="id_telefono">
+                </div>
+                <div class="form-input">
+                    <label for="cantidad">Cantidad:</label><br>
+                    <input type="text" name="cantidad_productos" class="form-control" id="cantidad_productos" readonly>
+                </div>
+                <div class="form-input">
+                    <label for="productos">Productos:</label><br>
+                    <input type="text" name="productos" class="form-control" id="productos" readonly>
+                </div>
+                <div class="form-input">
+                    <label for="id_precio_final">Precio final:</label><br>
+                    <input type="text" id="precio_final" name="precio_final" class="form-control" readonly>
+                </div>
+                <button type="submit" id="submit-btn">Comprar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            const productos = urlParams.get('productos');
+            document.getElementById('productos').value = productos;
+
+            const cantidades = urlParams.get('cantidades');
+            document.getElementById('cantidad_productos').value = cantidades;
+            
+            const precioFinal = urlParams.get('precio_final');
+            document.getElementById('precio_final').value = precioFinal;
+        });
+    </script>
+
+{% endblock %}

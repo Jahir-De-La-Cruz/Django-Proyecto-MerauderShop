@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="contenido">
+        <h1 class="titulo__bienvenida">Dale un Vistazo a Nuestros Productos</h1>
+    </div>
+
+    <div class="seccion__productos-contenedor">
+        {% for producto in productos %}
+            <div class="seccion__productos-producto" data-aos="fade-down" data-aos-duration="1000">
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'editar_productos' producto.id %}" class="boton__editar">Editar Producto</a>
+                {% endif %}
+                <div class="productos__info">
+                    <h1 class="productos__titulo">{{ producto.nombre }}</h1>
+                    {% if producto.imagen %}
+                        <img class="productos__img" src="{{ producto.imagen.url }}" alt="{{ producto.imagen }}">
+                    {% else %}
+                        <p>Imagen no disponible</p>
+                    {% endif %}
+                    <p class="productos__descripcion">{{ producto.descripcion }}</p>
+                </div>
+                <h2 class="productos__precio"><b>Precio: </b>{{ producto.precio }}MXN</h2>
+                <div class="botones">
+                    <button class="comprar-button" data-product-id="{{ producto.id }}">Comprar</button>
+                    <button class="añadir_al_carrito" data-product-id="{{ producto.id }}">Añadir al Carrito</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+
+            if (success === 'true') {
+                Swal.fire({
+                    title: '¡Compra exitosa!',
+                    text: 'Tu compra se ha realizado con éxito.',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
+            }
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="portada">
+        <div class="contenido">
+            <img src="../static/Img/portada.jpg" alt="portada">
+        </div>
+        <div class="seccion__sobrenosotros" id="info">
+            <div class="seccion__sobrenosotros-info">
+                {% if request.user.is_authenticated %}
+                    <h2 class="titulo__bienvenida">Bienvenido {{ request.user.username }}!</h2>
+                {% else %}
+                    <h2 class="titulo__bienvenida">Bienvenido a MerauderShop's</h2>
+                {% endif %}
+                <p>Somos una pequeña tienda de la esquina que vende material de oficina. Nuestro producto principal se destaca 
+                por su precio y comodidad. Nuestro público objetivo son los hombres. Queremos transmitir una sensación de 
+                comodidad, y al mismo tiempo ser accesibles.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="imagen" data-aos="fade-up" data-aos-duration="1000">
+        <img src="../static/Img/oficina.jpg" alt="oficina">
+    </div>
+
+    <div class="seccion__creador" data-aos="fade-up" data-aos-duration="1000">
+        <div class="seccion__creador-titulo">
+            <h2>Acerca de Nosotros!</h2>
+        </div>
+        <div class="seccion__creador-datos">
+            <p>Creado por Jahir De La Cruz un estudiante de 6to semestre del bachillerato técnico, de la carrera
+            de Programación Web, elaborada en Enero del 2024.</p>
+        </div>
+    </div>
+
+    <div class="seccion__register-contenedor">
+        <div class="seccion__register">
+            <h2>Quieres ser un colaborador? Registrate</h2>
+        </div>
+        <div class="seccion__register-form" data-aos="fade-up" data-aos-duration="1000">
+            <form method="POST">
+                {% csrf_token %}
+                <h1 class="error">{{ error }}</h1>
+                
+                <div class="form-input">
+                    <label for="username">Usuario:</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Escribe tu Usuario">
+                </div>
+                <div class="form-input">
+                    <label for="password1">Contraseña:</label>
+                    <input type="password" name="password1" id="password1" class="form-control" placeholder="Escribe tu Contraseña">
+                </div>
+                <div class="form-input">
+                    <label for="password2">Confirma tu Contraseña:</label>
+                    <input type="password" name="password2" id="password2" class="form-control" placeholder="Escribe nuevamente tu Contraseña">
+                </div>
+                <button>Ingresar</button>
+                <a href="{% url 'iniciar_sesion' %}">Ya eres un colaborador? Inicia Sesión!</a>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

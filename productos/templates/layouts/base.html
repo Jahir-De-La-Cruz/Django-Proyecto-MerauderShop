@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MerauderShop</title>
+    {% load static %}
+    <link rel="stylesheet" href="../../static/Css/main.css?v12345678901234">
+    <link rel="stylesheet" href="../../static/Css/productos.css?v12345678">
+    <link rel="stylesheet" href="../../static/Css/nosotros.css?v1">
+    <link rel="stylesheet" href="../../static/Css/carrito.css?v1234">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="contenedor__menu">
+        <div class="contenedor__menu-titulo">
+            <h1>MerauderShop's</h1>
+        </div>
+        <ul class="menu-enlaces">
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            <li><a href="{% url 'tienda' %}">Tienda</a></li>
+            <li><a href="{% url 'nosotros' %}">Sobre Nosotros</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'agregar_productos' %}">Agregar Productos</a></li>
+            <li><a href="{% url 'cerrar_sesion' %}">Cerrar Sesión</a></li>
+            {% else %}
+            <li><a href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a></li>
+            {% endif %}
+            <li><i class="fa-solid fa-cart-arrow-down carrito"></i></li>
+            <div class="cart-items-container">
+                <div class="cart-items">
+                    <h2>Carrito de Compras</h2>
+                    <table id="cart-items-table">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    </table>
+                    <p id="cart-total-price">Precio total: $0</p>
+                    <button id="cart-button-buy" class="buttons" type="button">Comprar</button>
+                    <button id="cart-button-clear" class="buttons" type="button">Vaciar Pedido</button>
+                </div>
+                <button class="cart-close-button" type="button"><i class="fa-solid fa-times"></i></button>
+            </div>
+        </ul>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="contenedor__footer">
+        <div class="contenedor__footer-contenido">
+            <div class="enlaces__importantes">
+                <h2>MerauderShop's</h2>
+            </div>
+            <div class="enlaces__importantes">
+                <a href="#">Terminos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Más Información</a>
+            </div>
+            <div class="enlaces__importantes">
+                <div class="enlaces__importantes-iconos">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../static/Js/carrito.js"></script>
+    <script src="../../static/Js/comprar.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

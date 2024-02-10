@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #070729, #0b082c, #110d33);
+    background: linear-gradient(to right, #080830, #0d0931, #0f0c29);
+}
+
+.contenedor__menu {
+    background: #120c55;
+    background: -webkit-linear-gradient(to right, #191946, #1d1947, #0d0930);
+    background: linear-gradient(to right, #18183f, #141136, #110d3a);
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contenedor__menu-titulo {
+    font-size: 24px;
+    font-style: italic;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.menu-enlaces {
+    display: flex;
+    align-items: center;
+}
+
+.menu-enlaces a {
+    margin-left: 20px;
+    color: #fff;
+    font-size: 16px;
+    flex-wrap: wrap;
+}
+
+.menu-enlaces a:hover {
+    color: #e7e6e6;
+    text-shadow: 2px 4px 7px rgba(0, 0, 0, .7);
+}
+
+.menu-enlaces .carrito {
+    margin-left: 20px;
+    color: #ccc;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* .portada {
+    margin: 30px 0;
+} */
+
+.portada {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #0f0c29;
+}
+
+.contenido {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    text-align: center;
+    padding: 30px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.contenido img {
+    width: 460px;
+    height: auto;
+    
+}
+
+.seccion__sobrenosotros {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.seccion__sobrenosotros-info {
+    padding: 60px 40px;
+}
+
+.seccion__sobrenosotros-info h2 {
+    font-size: 36px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.seccion__sobrenosotros-info p {
+    font-size: 20px;
+    color: #e7e6e6;
+    text-align: justify;
+}
+
+.imagen {
+    flex: 1;
+}
+
+.imagen img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.seccion__creador {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 60px 0;
+    background-color: #070324;
+}
+
+.seccion__creador-titulo {
+    background-color: #030113;
+    padding: 60px;
+}
+
+.seccion__creador-titulo h2 {
+    color: #fff;
+    font-size: 30px;
+}
+
+.seccion__creador-datos {
+    padding: 60px;
+}
+
+.seccion__creador-datos p { 
+    color: #e7e6e6;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.seccion__register-contenedor {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.seccion__register h2 {
+    color: #fff;
+    font-size: 30px;
+}
+
+.seccion__register-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
+}
+
+.form-input {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #2a0845;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1a052b;
+}
+
+button .texto__boton {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+button .texto__boton:hover {
+    text-decoration: none;
+}
+
+a {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    color: #2a0845;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #1a052b;
+}
+
+.error {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #a70606;
+    text-align: center;
+}
+
+.contenedor__footer {
+    background-color: #040118;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contenedor__footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.enlaces__importantes {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.enlaces__importantes h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.enlaces__importantes a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.enlaces__importantes a:hover {
+    text-decoration: underline;
+}
+
+/* Ajusta los estilos de los iconos según sea necesario */
+.enlaces__importantes-iconos {
+    font-size: 24px;
+    display: flex;
+}
+
+.enlaces__importantes-iconos a {
+    margin-left: 20px;
+}
+
+.enlaces__importantes-iconos a:hover {
+    color: #ccc;
+}
+
+@media (max-width: 400px) {
+    .contenedor__menu {
+        flex-direction: column;
+    }
+    
+    .contenedor__menu-titulo {
+        font-size: 20px;
+    }
+    
+    .menu-enlaces a {
+        font-size: 14px;
+    }
+    
+    .menu-enlaces .carrito {
+        font-size: 22px;
+    }
+
+    .portada {
+        flex-direction: column-reverse;
+    }
+    
+    .contenido img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .seccion__sobrenosotros {
+        flex-direction: column;
+    }
+    
+    .seccion__sobrenosotros-info h2 {
+        font-size: 26px;
+    }
+    
+    .seccion__sobrenosotros-info p {
+        font-size: 16px;
+    }
+
+    .seccion__creador {
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    .seccion__creador-titulo {
+        padding: 30px;
+    }
+    
+    .seccion__creador-titulo h2 {
+        font-size: 22px;
+    }
+    
+    .seccion__creador-datos p {
+        font-size: 16px;
+    }
+    
+    .seccion__register-contenedor {
+        margin: 40px;
+    }
+
+    .seccion__register h2 {
+        font-size: 22px;
+    }
+    
+    .form-control {
+        font-size: 14px;
+    }
+    
+    button {
+        font-size: 14px;
+    }
+    
+    .enlaces__importantes h2 {
+        font-size: 28px;
+    }
+    
+    .enlaces__importantes a {
+        font-size: 14px;
+    }
+    
+    .enlaces__importantes-iconos {
+        font-size: 20px;
+    }
+}

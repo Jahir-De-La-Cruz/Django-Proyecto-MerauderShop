@@ -1,0 +1,145 @@
+.titulo__bienvenida {
+    font-size: 36px;
+    color: #fff;
+}
+
+.seccion__productos-contenedor {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.seccion__productos-producto {
+    flex-basis: 20%;
+    width: 700px;
+    height: auto;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 3px 4px 4px rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+}
+
+.boton__editar {
+    background-color: #b10101;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.boton__editar:hover {
+    background-color: #860000;
+    color: #fff;
+    text-decoration: none;
+}
+
+.producto__info {
+    flex: 1;
+    max-height: 250px; /* Ajusta la altura máxima según tus necesidades */
+    overflow: hidden;
+}
+
+.productos__titulo {
+    padding: 10px 0px;
+    font-size: 22px;
+}
+
+.productos__img {
+    width: 240px;
+    height: 200px;
+    /* object-fit: cover; */
+    border-radius: 4px;
+}
+
+.productos__descripcion {
+    padding: 10px 0px;
+    font-size: 16px;
+    text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.productos__precio {
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: auto;
+}
+
+.botones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.botones button {
+    background-color: #2a0845;
+    color: #fff;
+    margin: 10px 4px;
+    border: none;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botones button:hover {
+    background-color: #1a052b;
+}
+
+@media (max-width: 400px) {
+    .titulo__bienvenida {
+        font-size: 28px;
+    }
+    
+    .seccion__productos-contenedor {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 10px;
+    }
+    
+    .seccion__productos-producto {
+        flex-basis: 10%;
+        max-width: none;
+        text-align: center;
+        margin: 2px;
+        padding: 6px;
+    }
+    
+    .boton__editar,
+    .botones button {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .productos__precio {
+        font-size: 16px;
+    }
+    
+    .productos__descripcion {
+        font-size: 14px;
+    }
+    
+    .productos__img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .botones button {
+        margin: 5px;
+    }
+}

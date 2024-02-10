@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <div class="seccion__register-contenedor">
+        <div class="seccion__register">
+            <h2>Agrega un Producto</h2>
+        </div>
+        <div class="seccion__register-form">
+            {% if error %}
+                <h1 class="error">{{ error }}</h1>
+            {% endif %}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <button>Agregar Producto</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
