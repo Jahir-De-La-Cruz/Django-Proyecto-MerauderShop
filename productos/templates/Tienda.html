@@ -20,7 +20,7 @@
                     {% if producto.imagen %}
                         <img class="productos__img" src="{{ producto.imagen.url }}" alt="{{ producto.imagen }}">
                     {% else %}
-                        <p>Imagen no disponible</p>
+                        <p style="text-align: center;">Imagen no disponible</p>
                     {% endif %}
                     <p class="productos__descripcion">{{ producto.descripcion }}</p>
                 </div>

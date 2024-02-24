@@ -36,10 +36,10 @@ def index(request):
         })
 
 def terminos(request):
-        return render(request, 'terminos_y_servicios.html')
+    return render(request, 'terminos_y_servicios.html')
         
 def nosotros(request):
-        return render(request, 'nosotros.html')
+    return render(request, 'nosotros.html')
         
 def iniciar_sesion(request):
     if request.method == 'GET':
