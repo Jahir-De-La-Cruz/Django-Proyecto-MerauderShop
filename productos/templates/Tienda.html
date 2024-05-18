@@ -40,11 +40,11 @@
             const success = urlParams.get('success');
 
             if (success === 'true') {
-                Swal.fire({
+                swal({
                     title: '¡Compra exitosa!',
                     text: 'Tu compra se ha realizado con éxito.',
                     icon: 'success',
-                    confirmButtonText: 'Aceptar'
+                    button: 'Aceptar'
                 });
             }
         });

@@ -13,16 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
             // Construir la URL con los datos del producto y la cantidad
             const url = `/comprar_productos/?productos=${encodeURIComponent(productName)}&precio_final=${productPrice}&cantidades=${quantity}&id=${productId}`;
 
-            Swal.fire({
+            swal({
                 title: '¿Estás seguro de realizar la compra?',
                 text: `Estás a punto de comprar "${productName}" por ${productPrice} MXN.`,
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: 'Confirmar',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = url;
+                icon: 'warning',
+                buttons: {
+                    cancel: 'Cancelar',
+                    confirm: 'Comprar'
+                },
+                dangerMode: true
+            }).then((confirmed) => {
+                if (confirmed) {
+                  window.location.href = url;
                 }
             });
         });

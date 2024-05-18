@@ -89,11 +89,11 @@ document.addEventListener('DOMContentLoaded', function() {
     buyButton.addEventListener('click', () => {
         const cartItems = cartItemsContainer.getElementsByTagName('tr');
         if (cartItems.length === 0) {
-            Swal.fire({
+            swal({
                 title: 'Carrito vacío',
                 text: 'El carrito de compras está vacío. Agrega productos antes de realizar la compra.',
                 icon: 'error',
-                confirmButtonText: 'Aceptar'
+                button: 'Aceptar'
             });
             return;
         }
@@ -115,17 +115,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const url = `/comprar_productos/?productos=${productDetails.join(',')}&cantidades=${productQuantities.join(',')}&precio_final=${calculateTotalPrice(productPrices)}`;
 
         // Mostrar mensaje de confirmación con SweetAlert
-        Swal.fire({
+        swal({
             title: '¿Estás seguro de realizar la compra?',
             text: `Resumen del pedido:\n\n${productDetails.map((detail, index) => `${decodeURIComponent(detail)} (Cantidad: ${productQuantities[index]}) - Precio: $${productPrices[index].toFixed(2)} MXN`).join('\n')}\nTotal: $${calculateTotalPrice(productPrices)} MXN\n\nUna vez confirmada la compra, los productos serán enviados y no podrás deshacer esta acción.`,
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Confirmar',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Redirigir a la página de compra
-                window.location.href = url;
+            icon: 'warning',
+            buttons: {
+                cancel: 'Cancelar',
+                confirm: 'Comprar'
+              },
+            dangerMode: true
+        }).then((confirmed) => {
+            if (confirmed) {
+              window.location.href = url;
             }
         });
     });
